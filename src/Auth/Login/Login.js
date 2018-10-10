@@ -1,13 +1,22 @@
 import React, {Component} from 'react';
+import Typography from '@material-ui/core/Typography';
 import {RaisedButton, TextField, RadioButton, RadioButtonGroup} from 'material-ui';
 
 class Login extends Component {
+    componentDidMount(){
+        document.title = "Login"
+    }
+
     render() {
         const style = {
             margin: 15,
         };
         return (
             <div style={{textAlign: 'center'}}>
+                <br/>
+                <Typography variant="h4" gutterBottom>
+                    Please enter your login and password
+                </Typography>
                 <TextField
                     hintText="Enter your Username"
                     floatingLabelText="Username"
