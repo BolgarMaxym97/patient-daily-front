@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import {RaisedButton, TextField, RadioButton, RadioButtonGroup} from 'material-ui';
 
 class Login extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -12,15 +12,16 @@ class Login extends Component {
             isHospital: 0,
         };
         this.handleLoginClick = this.handleLoginClick.bind(this);
-    }
-    
-    componentDidMount(){
-        document.title = "Login"
-    }
+    };
+
+    componentDidMount() {
+        document.title = "Login";
+    };
 
     handleLoginClick() {
         // call API here
-    }
+        return true;
+    };
 
     render() {
         const style = {
@@ -45,7 +46,10 @@ class Login extends Component {
                     onChange={(event, newValue) => this.setState({password: newValue})}
                 />
                 <br/>
-                <RadioButtonGroup name="isHospital" defaultSelected="0" onChange={(event, newValue) => this.setState({isHospital: newValue})}>
+                <RadioButtonGroup
+                    name="isHospital"
+                    defaultSelected="0"
+                    onChange={(event, newValue) => this.setState({isHospital: newValue})}>
                     <RadioButton
                         value="0"
                         label="Patient"
@@ -58,10 +62,11 @@ class Login extends Component {
                     />
                 </RadioButtonGroup>
                 <br/>
-                <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleLoginClick(event)}/>
+                <RaisedButton label="Submit" primary={true} style={style}
+                              onClick={(event) => this.handleLoginClick(event)}/>
             </div>
         );
-    }
+    };
 }
 
 export default Login;
