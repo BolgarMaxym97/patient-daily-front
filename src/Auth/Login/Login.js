@@ -31,13 +31,16 @@ class Login extends Component {
             centerRadioButtons: {
                 margin: '0 auto 10px auto',
                 width: '8%'
+            },
+            bottomButtons: {
+                margin: '10px'
             }
         };
         return (
             <Grid container>
                     <Grid item xs={12} style={style.centerFields}>
                         <Typography variant="h4" gutterBottom>
-                            Please enter your login and password
+                            Please Enter Your Username And Password
                         </Typography>
                     </Grid>
                     <Grid item xs={12} style={style.centerFields}>
@@ -73,7 +76,9 @@ class Login extends Component {
                         </RadioButtonGroup>
                     </Grid>
                     <Grid item xs={12} style={style.centerFields}>
-                        <RaisedButton label="Submit" primary={true} style={style}
+                        <RaisedButton label="Login" primary style={style.bottomButtons}
+                                      onClick={(event) => this.handleLoginClick(event)}/>
+                        <RaisedButton label="Register" primary style={style}
                                       onClick={(event) => this.handleLoginClick(event)}/>
                     </Grid>
             </Grid>
