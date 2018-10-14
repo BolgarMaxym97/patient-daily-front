@@ -1,21 +1,18 @@
 import React, {Component} from 'react';
-import {AppBar, Drawer} from 'material-ui';
+import {AppBar} from 'material-ui';
+import LeftMenu from '../../components/LeftMenu/LeftMenu'
 
 class Layout extends Component {
     constructor(props) {
         super(props);
         this.state = {
             drawerIsOpen: false,
-            menuItems: [
-                {route: '/profile/bio', text: 'bio'},
-                {route: '/profile/photos', text: 'photos'},
-                {route: '/profile/videos', text: 'videos'},
-                {route: '/profile/filmography', text: 'filmography'},
-                {route: '/profile/settings', text: 'settings'},
-                {route: '/profile/accounts', text: 'accounts'}
-            ]
         }
     }
+
+    leftMenuToogle = (state) => {
+      return this.setState({drawerIsOpen: state});
+    };
 
     render() {
         return (
@@ -25,19 +22,7 @@ class Layout extends Component {
                         title={this.props.title}
                         onLeftIconButtonClick={(e) => this.setState({drawerIsOpen: true})}
                     />
-                    <Drawer open={this.state.drawerIsOpen}
-                            docked={false}
-                            overlayStyle={{opacity: '0'}}
-                            onRequestChange={(e) => this.setState({drawerIsOpen: false})}>
-                        <div
-                            tabIndex={0}
-                            role="button"
-                            onClick={(e) => this.setState({drawerIsOpen: false})}
-                            onKeyDown={(e) => this.setState({drawerIsOpen: false})}
-                        >
-                            x
-                        </div>
-                    </Drawer>
+                   <LeftMenu drawerIsOpen={this.state.drawerIsOpen} leftMenuToogle={this.leftMenuToogle}/>
                     {this.props.children}
                 </main>
             </div>

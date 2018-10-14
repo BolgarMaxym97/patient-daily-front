@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Typography, Grid} from '@material-ui/core';
+import {Grid, Typography} from '@material-ui/core';
 import {RaisedButton, TextField, RadioButton, RadioButtonGroup} from 'material-ui';
 
 class Login extends Component {
@@ -39,7 +39,7 @@ class Login extends Component {
         return (
             <Grid container>
                     <Grid item xs={12} style={style.centerFields}>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography component="h2" variant="h3" gutterBottom>
                             Please Enter Your Username And Password
                         </Typography>
                     </Grid>
