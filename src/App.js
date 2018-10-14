@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider, getMuiTheme} from 'material-ui/styles';
 import Layout from './containers/Layout/Layout';
-import Login from './containers/Auth/Login/Login';
+import Register from './containers/Auth/Register/Register';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faUserCircle, faSlidersH, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 import './App.css';
@@ -36,7 +36,7 @@ class App extends Component {
         return (
             <MuiThemeProvider muiTheme={theme}>
                 <Layout title={this.state.title}>
-                    <Login/>
+                    <Register/>
                 </Layout>
             </MuiThemeProvider>
         );
