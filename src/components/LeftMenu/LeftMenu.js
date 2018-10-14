@@ -21,6 +21,7 @@ class LeftMenu extends Component {
             <Drawer open={this.props.drawerIsOpen}
                     docked={false}
                     overlayStyle={{opacity: '0'}}
+                    containerStyle={{height: '20%', top: '50px'}}
                     onRequestChange={(e) => this.props.leftMenuToogle(false)}>
                 <List component="nav"
                       onClick={(e) => this.props.leftMenuToogle(false)}
