@@ -1,0 +1,22 @@
+.centerFields {
+    margin: 10px auto 0 auto;
+    text-align: center;
+}
+
+.centerRadioButtons {
+    margin: 0 auto 10px auto;
+    width: 8%;
+}
+
+.bottomButtons {
+    margin: 10px 0 0 0;
+}
+
+.loginDesc {
+    font-size: 12px
+}
+
+.paper {
+    margin: 5% auto;
+    padding: 2%;
+}
