@@ -38,15 +38,19 @@ class Login extends Component {
             paper: {
                 margin: '5% auto',
                 padding: '2%'
+            },
+            loginDesc: {
+                fontSize: '12px'
             }
         };
         return (
             <Grid container>
-                <Paper elevation={1} style={style.paper}>
+                <Paper elevation={20} style={style.paper}>
                     <Grid item xs={12} style={style.centerFields}>
                         <Typography component="h2" variant="h5" gutterBottom>
-                            Login
+                            <b>Patient Daily</b>
                         </Typography>
+                        <p style={style.loginDesc}>(enter your email and password)</p>
                     </Grid>
                     <Grid item xs={12} style={style.centerFields}>
                         <TextField
@@ -83,7 +87,7 @@ class Login extends Component {
                     <Grid item xs={12} style={style.centerFields}>
                         <RaisedButton label="Login" primary style={style.bottomButtons}
                                       onClick={(event) => this.handleLoginClick(event)}/>
-                        <RaisedButton label="Register" primary style={style}
+                        <RaisedButton label="Register" secondary style={style}
                                       onClick={(event) => this.handleLoginClick(event)}/>
                     </Grid>
                 </Paper>

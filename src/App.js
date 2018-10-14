@@ -27,9 +27,9 @@ class App extends Component {
                 primary1Color: '#673ab7',
                 primary2Color: '#482880',
                 primary3Color: '#8561c5',
-                secondary1Color: '#00e676',
-                secondary2Color: '#00a152',
-                secondary3Color: '#33eb91',
+                accent1Color: '#00e676',
+                accent2Color: '#00a152',
+                accent3Color: '#33eb91',
             },
         });
 
