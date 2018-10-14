@@ -1,3 +1,7 @@
 /*Fonts*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 /*End Fonts*/
+
+html, body, #root {
+    height: 100%;
+}

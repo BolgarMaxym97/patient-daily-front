@@ -16,7 +16,7 @@ class Layout extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{backgroundColor: '#eeeeee', height: '100%'}}>
                 <main>
                     <AppBar
                         title={this.props.title}

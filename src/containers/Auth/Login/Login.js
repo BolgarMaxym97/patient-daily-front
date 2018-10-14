@@ -36,7 +36,8 @@ class Login extends Component {
                 margin: '10px'
             },
             paper: {
-                margin: '5% auto'
+                margin: '5% auto',
+                padding: '2%'
             }
         };
         return (
