@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid, Typography} from '@material-ui/core';
+import {Grid, Typography, Paper} from '@material-ui/core';
 import {RaisedButton, TextField, RadioButton, RadioButtonGroup} from 'material-ui';
 
 class Login extends Component {
@@ -34,13 +34,17 @@ class Login extends Component {
             },
             bottomButtons: {
                 margin: '10px'
+            },
+            paper: {
+                margin: '5% auto'
             }
         };
         return (
             <Grid container>
+                <Paper elevation={1} style={style.paper}>
                     <Grid item xs={12} style={style.centerFields}>
-                        <Typography component="h2" variant="h3" gutterBottom>
-                            Please Enter Your Username And Password
+                        <Typography component="h2" variant="h5" gutterBottom>
+                            Login
                         </Typography>
                     </Grid>
                     <Grid item xs={12} style={style.centerFields}>
@@ -81,6 +85,7 @@ class Login extends Component {
                         <RaisedButton label="Register" primary style={style}
                                       onClick={(event) => this.handleLoginClick(event)}/>
                     </Grid>
+                </Paper>
             </Grid>
         );
     }
