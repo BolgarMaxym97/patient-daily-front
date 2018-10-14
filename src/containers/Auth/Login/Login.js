@@ -44,7 +44,7 @@ class Login extends Component {
                 <Paper elevation={1} style={style.paper}>
                     <Grid item xs={12} style={style.centerFields}>
                         <Typography component="h2" variant="h5" gutterBottom>
-                            Login
+                            Login test
                         </Typography>
                     </Grid>
                     <Grid item xs={12} style={style.centerFields}>
