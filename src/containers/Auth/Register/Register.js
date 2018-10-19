@@ -9,6 +9,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isHospitalContent: this.setPatientContent(),
             patient: {
                 login: '',
                 password: '',
@@ -58,11 +59,11 @@ class Login extends Component {
         </div>
     );
 
-    setDynamicContent = (newValue) => {
-        if (this.state.isHospital == 0) {
-            return this.setPatientContent();
+    setHospital = (newValue) => {
+        if (+newValue === 1) {
+            return this.setState({isHospitalContent: this.setHospitalContent()});
         }
-        return this.setHospitalContent();
+        return this.setState({isHospitalContent: this.setPatientContent()});
     };
 
     handleRegisterClick = () => {
@@ -70,7 +71,6 @@ class Login extends Component {
     };
 
     render() {
-        let dynamicContent = this.setDynamicContent();
         return (
             <AuthCard>
                 <Grid item xs={12} className={classes.centerFields}>
@@ -97,10 +97,10 @@ class Login extends Component {
                         onChange={(event, newValue) => this.setState({passwordConfirm: newValue})}
                     />
                 </Grid>
-                {dynamicContent}
+                {this.state.isHospitalContent}
                 <Grid item xs={12}>
                     <RadioButtonGroup name="isHospital" defaultSelected="0"
-                                      onChange={(event, newValue) => this.setState({isHospital: newValue})}>
+                                      onChange={(event, newValue) => this.setHospital(newValue)}>
                         <RadioButton
                             value="0"
                             label="Patient"
