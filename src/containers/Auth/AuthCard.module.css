@@ -3,9 +3,10 @@
     text-align: center;
 }
 
-.centerRadioButtons {
-    margin: 0 auto 10px auto;
-    width: 8%;
+.radioGroup {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .bottomButtons {
@@ -17,6 +18,6 @@
 }
 
 .paper {
-    margin: 5% auto;
+    margin: 2% auto;
     padding: 2%;
 }

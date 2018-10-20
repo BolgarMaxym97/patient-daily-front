@@ -43,6 +43,24 @@ class Login extends Component {
             <AuthCard>
                 <Grid item xs={12} className={classes.centerFields}>
                     <p className={classes.authDesc}>(enter your data)</p>
+                </Grid>
+                <Grid item xs={12}>
+                    <RadioButtonGroup name="isHospital" defaultSelected="0"
+                                      className={classes.radioGroup}
+                                      onChange={(event, newValue) => this.setHospital(newValue)}>
+                        <RadioButton
+                            value="0"
+                            label="Patient"
+                            className={classes.centerRadioButtons}
+                        />
+                        <RadioButton
+                            value="1"
+                            label="Hospital"
+                            className={classes.centerRadioButtons}
+                        />
+                    </RadioButtonGroup>
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Enter your Username"
                         floatingLabelText="Username"
@@ -66,20 +84,26 @@ class Login extends Component {
                     />
                 </Grid>
                 {this.state.dynamicFields}
-                <Grid item xs={12}>
-                    <RadioButtonGroup name="isHospital" defaultSelected="0"
-                                      onChange={(event, newValue) => this.setHospital(newValue)}>
-                        <RadioButton
-                            value="0"
-                            label="Patient"
-                            className={classes.centerRadioButtons}
-                        />
-                        <RadioButton
-                            value="1"
-                            label="Hospital"
-                            className={classes.centerRadioButtons}
-                        />
-                    </RadioButtonGroup>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        hintText="Enter email"
+                        floatingLabelText="Email"
+                        onChange={(event, newValue) => this.setState({login: newValue})}
+                    />
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        hintText="Enter address"
+                        floatingLabelText="Address"
+                        onChange={(event, newValue) => this.setState({login: newValue})}
+                    />
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        hintText="Enter phone"
+                        floatingLabelText="Phone"
+                        onChange={(event, newValue) => this.setState({login: newValue})}
+                    />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <RaisedButton label="Create New Account" fullWidth primary className={classes.bottomButtons}
