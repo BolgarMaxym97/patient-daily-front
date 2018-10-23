@@ -10,6 +10,7 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
+        console.log(process.env);
         this.state = {
             dynamicFields: (<PatientContent/>),
             patient: {
