@@ -3,16 +3,17 @@ import {Grid} from '@material-ui/core';
 import {RaisedButton, TextField, RadioButton, RadioButtonGroup} from 'material-ui';
 import AuthCard from '../AuthCard';
 import classes from '../AuthCard.module.css';
-import PatientContent from '../../../components/Register/Patient/Patient'
-import HospitalContent from '../../../components/Register/Hospital/Hospital'
+import PatientContent from '../../../components/Register/Patient/Patient';
+import HospitalContent from '../../../components/Register/Hospital/Hospital';
+import api from '../../../api';
 
 class Login extends Component {
 
     constructor(props) {
         super(props);
-        console.log(process.env);
         this.state = {
             dynamicFields: (<PatientContent/>),
+            hospitals: [],
             patient: {
                 login: '',
                 password: '',
@@ -25,7 +26,15 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        document.title = "Registration"
+        document.title = "Registration";
+        return api.get('hospitals-info')
+            .then(res => {
+                let hospitals = [];
+                res.data.map(function (hospital) {
+                    hospitals.push({[hospital.id] : hospital.hospital_name})
+                });
+                return this.setState({hospitals})
+            });
     }
 
     setHospital = (newValue) => {
