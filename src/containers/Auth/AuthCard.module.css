@@ -1,0 +1,23 @@
+.centerFields {
+    margin: 10px auto 0 auto;
+    text-align: center;
+}
+
+.radioGroup {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.bottomButtons {
+    margin: 10px 0 0 0;
+}
+
+.authDesc {
+    font-size: 12px
+}
+
+.paper {
+    margin: 2% auto;
+    padding: 2%;
+}
