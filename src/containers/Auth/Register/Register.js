@@ -23,18 +23,11 @@ class Login extends Component {
             }
         };
         this.handleRegisterClick = this.handleRegisterClick.bind(this);
+        this.setHospital = this.setHospital.bind(this);
     }
 
     componentDidMount() {
         document.title = "Registration";
-        return api.get('hospitals-info')
-            .then(res => {
-                let hospitals = [];
-                res.data.map(function (hospital) {
-                    hospitals.push({[hospital.id] : hospital.hospital_name})
-                });
-                return this.setState({hospitals})
-            });
     }
 
     setHospital = (newValue) => {
