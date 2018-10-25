@@ -10,7 +10,20 @@ class PatientContent extends Component {
         super(props);
         this.state = {
             hospitals: [],
+            patient: {
+                login: '',
+                password: '',
+                passwordConfirm: '',
+                full_name: '',
+                hospital_id: '',
+                email: '',
+                address: '',
+                phone: '',
+            }
         };
+        this.handleUsername = this.handleUsername.bind(this);
+        this.handlePassword = this.handlePassword.bind(this);
+        this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
     }
 
     componentDidMount() {
@@ -27,9 +40,50 @@ class PatientContent extends Component {
             });
     }
 
+    handleUsername = (newValue) => {
+        let patient = this.state.patient;
+        patient.login = newValue;
+        this.setState(patient);
+    };
+
+    handlePassword = (newValue) => {
+        let patient = this.state.patient;
+        patient.password = newValue;
+        this.setState(patient);
+    };
+
+    handlePasswordConfirm = (newValue) => {
+        let patient = this.state.patient;
+        patient.passwordConfirm = newValue;
+        this.setState(patient);
+    };
+
     render() {
         return (
             <div>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        hintText="Enter your Username"
+                        floatingLabelText="Username"
+                        onChange={(event, newValue) => this.handleUsername(newValue)}
+                    />
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        type="password"
+                        hintText="Enter your Password"
+                        floatingLabelText="Password"
+                        onChange={(event, newValue) => this.handlePassword(newValue)}
+                    />
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        type="password"
+                        hintText="Confirm your Password"
+                        floatingLabelText="Password Confirm"
+                        onChange={(event, newValue) => this.handlePasswordConfirm(newValue)}
+                    />
+                </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Enter your Full Name"
@@ -44,6 +98,27 @@ class PatientContent extends Component {
                             )
                         })}
                     </SelectField>
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        hintText="Enter email"
+                        floatingLabelText="Email"
+                        onChange={(event, newValue) => this.setState({login: newValue})}
+                    />
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        hintText="Enter address"
+                        floatingLabelText="Address"
+                        onChange={(event, newValue) => this.setState({login: newValue})}
+                    />
+                </Grid>
+                <Grid item xs={12} className={classes.centerFields}>
+                    <TextField
+                        hintText="Enter phone"
+                        floatingLabelText="Phone"
+                        onChange={(event, newValue) => this.setState({login: newValue})}
+                    />
                 </Grid>
             </div>
         )
