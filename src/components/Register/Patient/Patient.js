@@ -14,7 +14,6 @@ class PatientContent extends Component {
     }
 
     componentDidMount() {
-        document.title = "Registration";
         return api.get('hospitals-info')
             .then(res => {
                 let hospitals = [];
@@ -37,8 +36,8 @@ class PatientContent extends Component {
                         floatingLabelText="Full Name"
                     />
                 </Grid>
-                <Grid item xs={12} className={classes.centerFields}>
-                    <SelectField floatingLabelText="Your hospital">
+                <Grid item xs={12}>
+                    <SelectField floatingLabelText="Your hospital" className={classes.centerFieldsSelect}>
                         {this.state.hospitals.map(function (hospital) {
                             return (
                                 <MenuItem value={hospital.id} primaryText={hospital.hospital_name} key={hospital.id}/>
