@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider, getMuiTheme} from 'material-ui/styles';
+import {withRouter } from "react-router-dom";
 import {AppBar} from 'material-ui';
 import LeftMenu from '../../components/LeftMenu/LeftMenu';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faUserCircle, faSlidersH, faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import {faUserCircle, faSlidersH, faSignOutAlt, faHome} from '@fortawesome/free-solid-svg-icons';
 import './Layout.css';
 
-library.add(faUserCircle, faSlidersH, faSignOutAlt);
+library.add(faUserCircle, faSlidersH, faSignOutAlt, faHome);
 
 
 class Layout extends Component {
@@ -14,13 +15,9 @@ class Layout extends Component {
         super(props);
         this.state = {
             drawerIsOpen: false,
-            title: document.title,
+            title: 'Дневник пациента',
         }
     }
-
-    componentDidMount() {
-        return this.setState({title: document.title});
-    };
 
     leftMenuToogle = (state) => {
         return this.setState({drawerIsOpen: state});
@@ -55,4 +52,4 @@ class Layout extends Component {
     }
 }
 
-export default Layout;
+export default withRouter(Layout);

@@ -18,7 +18,7 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        document.title = "Login";
+        document.title = "Вход";
     }
 
     handleLoginClick = () => {
@@ -29,10 +29,10 @@ class Login extends Component {
         return (
             <AuthCard>
                 <Grid item xs={12} className={classes.centerFields}>
-                    <p className={classes.authDesc}>(enter username and password)</p>
+                    <p className={classes.authDesc}>(для входа в личный кабинет введите логин и пароль)</p>
                     <TextField
                         hintText="Enter your Username"
-                        floatingLabelText="Username"
+                        floatingLabelText="Логин"
                         onChange={(event, newValue) => this.setState({login: newValue})}
                     />
                 </Grid>
@@ -40,7 +40,7 @@ class Login extends Component {
                     <TextField
                         type="password"
                         hintText="Enter your Password"
-                        floatingLabelText="Password"
+                        floatingLabelText="Пароль"
                         onChange={(event, newValue) => this.setState({password: newValue})}
                     />
                 </Grid>
@@ -49,21 +49,21 @@ class Login extends Component {
                                       onChange={(event, newValue) => this.setState({isHospital: newValue})}>
                         <RadioButton
                             value="0"
-                            label="Patient"
+                            label="Пациент"
                             className={classes.centerRadioButtons}
                         />
                         <RadioButton
                             value="1"
-                            label="Hospital"
+                            label="Больница"
                             className={classes.centerRadioButtons}
                         />
                     </RadioButtonGroup>
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
-                    <RaisedButton label="Login" fullWidth primary className={classes.bottomButtons}
+                    <RaisedButton label="Вход" fullWidth primary className={classes.bottomButtons}
                                   onClick={(event) => this.handleLoginClick(event)}/>
                     <Link to='/register'>
-                        <RaisedButton label="Register" fullWidth secondary className={classes.bottomButtons}/>
+                        <RaisedButton label="Регистрация" fullWidth secondary className={classes.bottomButtons}/>
                     </Link>
                 </Grid>
             </AuthCard>

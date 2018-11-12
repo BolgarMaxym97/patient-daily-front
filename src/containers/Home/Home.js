@@ -5,7 +5,7 @@ class Home extends Component {
 
     render() {
         return (
-            <h1>MAIN</h1>
+            <h1>Главная страница</h1>
         );
     }
 }

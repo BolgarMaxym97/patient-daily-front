@@ -9,7 +9,7 @@ class Login extends Component {
                 <Paper elevation={20} className={classes.paper}>
                     <Grid item xs={12} className={classes.centerFields}>
                         <Typography component="h2" variant="h5" gutterBottom>
-                            <b>Patient Daily</b>
+                            <b>Дневник пациента</b>
                         </Typography>
                     </Grid>
                     {this.props.children}

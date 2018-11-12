@@ -21,7 +21,7 @@ class Register extends Component {
     }
 
     componentDidMount() {
-        document.title = "Registration";
+        document.title = "Регистрация";
     }
 
     handleSetHospital = (newValue) => {
@@ -40,7 +40,7 @@ class Register extends Component {
         return (
             <AuthCard>
                 <Grid item xs={12} className={classes.centerFields}>
-                    <p className={classes.authDesc}>(enter your data)</p>
+                    <p className={classes.authDesc}>(заполните свои данные)</p>
                 </Grid>
                 <Grid item xs={12}>
                     <RadioButtonGroup name="isHospital" defaultSelected="0"
@@ -48,22 +48,22 @@ class Register extends Component {
                                       onChange={(event, newValue) => this.handleSetHospital(newValue)}>
                         <RadioButton
                             value="0"
-                            label="Patient"
+                            label="Пациент"
                             className={classes.centerRadioButtons}
                         />
                         <RadioButton
                             value="1"
-                            label="Hospital"
+                            label="Больница"
                             className={classes.centerRadioButtons}
                         />
                     </RadioButtonGroup>
                 </Grid>
                 {this.state.dynamicFields}
                 <Grid item xs={12} className={classes.centerFields}>
-                    <RaisedButton label="Create New Account" fullWidth primary className={classes.bottomButtons}
+                    <RaisedButton label="Зарегестрироваться" fullWidth primary className={classes.bottomButtons}
                                   onClick={(event) => this.handleRegisterClick(event)}/>
                     <Link to='/login'>
-                        <RaisedButton label="Back To Login" fullWidth secondary className={classes.bottomButtons}/>
+                        <RaisedButton label="Вернуться к входу" fullWidth secondary className={classes.bottomButtons}/>
                     </Link>
                 </Grid>
             </AuthCard>

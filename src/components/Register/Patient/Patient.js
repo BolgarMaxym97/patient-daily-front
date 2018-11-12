@@ -63,35 +63,35 @@ class PatientContent extends Component {
             <div>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
-                        hintText="Enter your Username"
-                        floatingLabelText="Username"
+                        hintText="Введите Ваш логин"
+                        floatingLabelText="Логин"
                         onChange={(event, newValue) => this.handleUsername(newValue)}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         type="password"
-                        hintText="Enter your Password"
-                        floatingLabelText="Password"
+                        hintText="Введите Ваш пароль"
+                        floatingLabelText="Пароль"
                         onChange={(event, newValue) => this.handlePassword(newValue)}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         type="password"
-                        hintText="Confirm your Password"
-                        floatingLabelText="Password Confirm"
+                        hintText="Подтвердите Ваш пароль"
+                        floatingLabelText="Подтвердите пароль"
                         onChange={(event, newValue) => this.handlePasswordConfirm(newValue)}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
-                        hintText="Enter your Full Name"
-                        floatingLabelText="Full Name"
+                        hintText="Введите Ваше полное имя"
+                        floatingLabelText="Полное имя"
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <SelectField floatingLabelText="Your hospital" className={classes.centerFieldsSelect}>
+                    <SelectField floatingLabelText="Ваша больница" className={classes.centerFieldsSelect}>
                         {this.state.hospitals.map(function (hospital) {
                             return (
                                 <MenuItem value={hospital.id} primaryText={hospital.hospital_name} key={hospital.id}/>
@@ -101,22 +101,22 @@ class PatientContent extends Component {
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
-                        hintText="Enter email"
+                        hintText="Ваш email"
                         floatingLabelText="Email"
                         onChange={(event, newValue) => this.setState({login: newValue})}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
-                        hintText="Enter address"
-                        floatingLabelText="Address"
+                        hintText="Ваш адрес"
+                        floatingLabelText="Адрес"
                         onChange={(event, newValue) => this.setState({login: newValue})}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
-                        hintText="Enter phone"
-                        floatingLabelText="Phone"
+                        hintText="Ваш телефон"
+                        floatingLabelText="Телефон"
                         onChange={(event, newValue) => this.setState({login: newValue})}
                     />
                 </Grid>

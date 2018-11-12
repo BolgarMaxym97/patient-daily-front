@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import RouterWrapper from './router';
+import RouterWrapper from './router/router';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<RouterWrapper/>, document.getElementById('root'));

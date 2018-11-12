@@ -1,4 +1,4 @@
-export default Storage = {
+const Storage = {
     _set(name, obj) {
         this.drop(name);
         if (!name || typeof name !== 'string' || typeof name === 'undefined') {
@@ -31,4 +31,6 @@ export default Storage = {
     flush() {
         return localStorage.clear();
     }
-}
+};
+
+export default Storage;
