@@ -25,7 +25,7 @@ class LeftMenu extends Component {
     }
 
     render() {
-        let menuItems = Storage.user() ? this.state.menuItems.authed : this.state.menuItems.notAuthed;
+        let menuItems = Storage.auth() ? this.state.menuItems.authed : this.state.menuItems.notAuthed;
         return (
             <Drawer open={this.props.drawerIsOpen}
                     docked={false}

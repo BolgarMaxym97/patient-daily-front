@@ -25,6 +25,10 @@ const Storage = {
 
         return this._get('user');
     },
+    auth()
+    {
+        return this._get('auth');
+    },
     drop(name) {
         return localStorage.removeItem(name);
     },
