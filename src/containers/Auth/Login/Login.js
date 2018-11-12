@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Grid} from '@material-ui/core';
 import {RaisedButton, TextField, RadioButton, RadioButtonGroup} from 'material-ui';
+import {Link} from "react-router-dom";
 import AuthCard from '../AuthCard';
 import classes from '../AuthCard.module.css';
 
@@ -17,7 +18,7 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        document.title = "Login"
+        document.title = "Login";
     }
 
     handleLoginClick = () => {
@@ -61,8 +62,9 @@ class Login extends Component {
                 <Grid item xs={12} className={classes.centerFields}>
                     <RaisedButton label="Login" fullWidth primary className={classes.bottomButtons}
                                   onClick={(event) => this.handleLoginClick(event)}/>
-                    <RaisedButton label="Register" fullWidth secondary className={classes.bottomButtons}
-                                  onClick={(event) => this.handleLoginClick(event)}/>
+                    <Link to='/register'>
+                        <RaisedButton label="Register" fullWidth secondary className={classes.bottomButtons}/>
+                    </Link>
                 </Grid>
             </AuthCard>
         );

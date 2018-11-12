@@ -5,6 +5,7 @@ import AuthCard from '../AuthCard';
 import classes from '../AuthCard.module.css';
 import PatientContent from '../../../components/Register/Patient/Patient';
 import HospitalContent from '../../../components/Register/Hospital/Hospital';
+import {Link} from "react-router-dom";
 
 class Register extends Component {
 
@@ -61,8 +62,9 @@ class Register extends Component {
                 <Grid item xs={12} className={classes.centerFields}>
                     <RaisedButton label="Create New Account" fullWidth primary className={classes.bottomButtons}
                                   onClick={(event) => this.handleRegisterClick(event)}/>
-                    <RaisedButton label="Back To Login" fullWidth secondary className={classes.bottomButtons}
-                                  href="/login"/>
+                    <Link to='/login'>
+                        <RaisedButton label="Back To Login" fullWidth secondary className={classes.bottomButtons}/>
+                    </Link>
                 </Grid>
             </AuthCard>
         );
