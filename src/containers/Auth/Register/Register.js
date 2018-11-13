@@ -38,7 +38,7 @@ class Register extends Component {
 
     render() {
         return (
-            <AuthCard>
+            <AuthCard title='Регистрация'>
                 <Grid item xs={12} className={classes.centerFields}>
                     <p className={classes.authDesc}>(заполните свои данные)</p>
                 </Grid>

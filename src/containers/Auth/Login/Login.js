@@ -27,7 +27,7 @@ class Login extends Component {
 
     render() {
         return (
-            <AuthCard>
+            <AuthCard title='Авторизация'>
                 <Grid item xs={12} className={classes.centerFields}>
                     <p className={classes.authDesc}>(для входа в личный кабинет введите логин и пароль)</p>
                     <TextField
