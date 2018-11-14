@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Drawer} from 'material-ui';
 import {List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import classes from './LeftMenu.module.css';
 import Storage from '../../app-storage';
 
@@ -36,14 +36,14 @@ class LeftMenu extends Component {
                       onClick={(e) => this.props.leftMenuToogle(false)}
                       onKeyDown={(e) => this.props.leftMenuToogle(false)}>
                     {menuItems.map((item, index) => (
-                        <Link to={item.link} key={index} style={{textDecoration: 'none'}}>
+                        <NavLink to={item.link} key={index} style={{textDecoration: 'none'}} activeClassName={classes.active}>
                             <ListItem>
                                 <ListItemIcon>
                                     <FontAwesomeIcon icon={item.icon}/>
                                 </ListItemIcon>
                                 <ListItemText disableTypography primary={item.name} className={classes.menuItemText}/>
                             </ListItem>
-                        </Link>
+                        </NavLink>
                     ))}
                 </List>
             </Drawer>

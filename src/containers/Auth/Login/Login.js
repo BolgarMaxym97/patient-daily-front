@@ -4,6 +4,8 @@ import {RaisedButton, TextField, RadioButton, RadioButtonGroup} from 'material-u
 import {Link} from "react-router-dom";
 import AuthCard from '../AuthCard';
 import classes from '../AuthCard.module.css';
+import api from '../../../api';
+import qs from 'qs';
 
 class Login extends Component {
 
@@ -22,7 +24,10 @@ class Login extends Component {
     }
 
     handleLoginClick = () => {
-        // call API here
+        api.post('auth', qs.stringify(this.state))
+            .then(res => {
+                console.log(res);
+            });
     };
 
     render() {
