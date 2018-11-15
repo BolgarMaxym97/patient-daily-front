@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import AuthCard from '../AuthCard';
 import classes from '../AuthCard.module.css';
 import api from '../../../api';
+import Validator from '../../../helpers/validator';
 import qs from 'qs';
 
 class Login extends Component {
@@ -15,6 +16,7 @@ class Login extends Component {
             login: '',
             password: '',
             isHospital: 0,
+            notValid: false,
         };
         this.handleLoginClick = this.handleLoginClick.bind(this);
     }
@@ -23,11 +25,31 @@ class Login extends Component {
         document.title = "Вход";
     }
 
+    errorMessage = (field) => {
+        if (field.length > 0 && !Validator.validate(Validator.TYPES.ALPHANUMERIC, field)) {
+            return 'This field required and must be alphanumeric'
+        }
+        return '';
+    };
+
+    validateForm = () => {
+        return (Validator.validate(Validator.TYPES.ALPHANUMERIC, this.state.login) && Validator.validate(Validator.TYPES.ALPHANUMERIC, this.state.password))
+    };
+
     handleLoginClick = () => {
-        api.post('auth', qs.stringify(this.state))
-            .then(res => {
-                console.log(res);
-            });
+        if (this.validateForm()) {
+            this.setState({notValid: false});
+            return api.post('auth', qs.stringify({
+                login: this.state.login,
+                password: this.state.password,
+                isHospital: this.state.isHospital,
+            }))
+                .then(res => {
+                    console.log(res);
+                });
+        }
+        return this.setState({notValid: true});
+
     };
 
     render() {
@@ -35,7 +57,11 @@ class Login extends Component {
             <AuthCard title='Авторизация'>
                 <Grid item xs={12} className={classes.centerFields}>
                     <p className={classes.authDesc}>(для входа в личный кабинет введите логин и пароль)</p>
+                    {this.state.notValid && (
+                        <p className={classes.errorMessage}>All fields are required and must be alphanumeric</p>
+                    )}
                     <TextField
+                        errorText={this.errorMessage(this.state.login)}
                         hintText="Enter your Username"
                         floatingLabelText="Логин"
                         onChange={(event, newValue) => this.setState({login: newValue})}
@@ -44,6 +70,7 @@ class Login extends Component {
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         type="password"
+                        errorText={this.errorMessage(this.state.password)}
                         hintText="Enter your Password"
                         floatingLabelText="Пароль"
                         onChange={(event, newValue) => this.setState({password: newValue})}

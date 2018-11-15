@@ -21,3 +21,7 @@
     margin: 2% auto;
     padding: 2%;
 }
+
+.errorMessage {
+    color: red;
+}
