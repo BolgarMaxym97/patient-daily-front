@@ -6,6 +6,7 @@ import AuthCard from '../AuthCard';
 import classes from '../AuthCard.module.css';
 import api from '../../../api';
 import Validator from '../../../helpers/validator';
+import Storage from '../../../app-storage';
 import qs from 'qs';
 
 class Login extends Component {
@@ -22,6 +23,9 @@ class Login extends Component {
     }
 
     componentDidMount() {
+        if (Storage.auth()) {
+            return this.props.history.push('/');
+        }
         document.title = "Вход";
     }
 
@@ -45,7 +49,8 @@ class Login extends Component {
                 isHospital: this.state.isHospital,
             }))
                 .then(res => {
-                    console.log(res);
+                    Storage.user(res.data);
+                    this.props.history.push('/');
                 });
         }
         return this.setState({notValid: true});

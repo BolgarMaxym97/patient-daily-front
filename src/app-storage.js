@@ -20,7 +20,8 @@ const Storage = {
             if (typeof data !== 'object' || Object.keys(data).length === 0) {
                 throw new TypeError('User data type should be NOT EMPTY AND be an object!!!');
             }
-            return this._set('user', data);
+            this._set('user', data);
+            return this._set('auth', true);
         }
 
         return this._get('user');
