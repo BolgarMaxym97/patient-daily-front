@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 
 class Home extends Component {
 
+    componentDidMount() {
+        document.title = 'Домашняя страница';
+    }
 
     render() {
         return (
