@@ -6,6 +6,9 @@ import classes from '../AuthCard.module.css';
 import PatientContent from '../../../components/Register/Patient/Patient';
 import HospitalContent from '../../../components/Register/Hospital/Hospital';
 import {Link} from "react-router-dom";
+import api from '../../../api';
+import Validator from '../../../helpers/validator';
+import qs from 'qs';
 
 class Register extends Component {
 
@@ -19,7 +22,7 @@ class Register extends Component {
                 password: '',
                 passwordConfirm: '',
                 full_name: '',
-                hospital_id: '',
+                hospital_id: 1,
                 email: '',
                 address: '',
                 phone: '',
@@ -46,7 +49,6 @@ class Register extends Component {
     }
 
     handleInputChange = (value, model, field) => {
-        console.log(value, model, field);
         this.setState(prevState => ({
             [model]: {
                 ...prevState[model],
@@ -64,7 +66,13 @@ class Register extends Component {
     };
 
     handleRegisterClick = () => {
-        // call API here
+        let model = this.state.isHospital ? 'hospital' : 'patient';
+        return api.post('auth/register-' + model, qs.stringify(this.state[model]))
+            .then(res => {
+                if (res.status === 200 && res.statusText == 'OK') {
+                    return this.props.history.push('/login');
+                }
+            });
     };
 
     render() {
