@@ -12,24 +12,49 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dynamicFields: (<PatientContent/>),
+            dynamicFields: (<PatientContent handleInputChange={this.handleInputChange}/>),
             isHospital: 0,
+            patient: {
+                login: '',
+                password: '',
+                passwordConfirm: '',
+                full_name: '',
+                hospital_id: '',
+                email: '',
+                address: '',
+                phone: '',
+            },
+            hospital: {
+                login: '',
+                password: '',
+                passwordConfirm: '',
+                hospital_name: '',
+                main_doctor: '',
+                email: '',
+                address: '',
+                phone: '',
+            }
 
         };
         this.handleRegisterClick = this.handleRegisterClick.bind(this);
         this.handleSetHospital = this.handleSetHospital.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount() {
         document.title = "Регистрация";
     }
 
+    handleInputChange = (value, model, field) => {
+        console.info(value, model, field)
+    };
+
     handleSetHospital = (newValue) => {
         this.setState({isHospital: +newValue});
         if (+newValue === 1) {
-            return this.setState({dynamicFields: (<HospitalContent/>)});
+            return this.setState({dynamicFields: (<HospitalContent handleInputChange={this.handleInputChange}/>)});
         }
-        return this.setState({dynamicFields: (<PatientContent/>)});
+        return this.setState({dynamicFields: (<PatientContent handleInputChange={this.handleInputChange}/>)});
     };
 
     handleRegisterClick = () => {

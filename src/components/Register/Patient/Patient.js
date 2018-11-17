@@ -9,21 +9,8 @@ class PatientContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hospitals: [],
-            patient: {
-                login: '',
-                password: '',
-                passwordConfirm: '',
-                full_name: '',
-                hospital_id: '',
-                email: '',
-                address: '',
-                phone: '',
-            }
+            hospitals: []
         };
-        this.handleUsername = this.handleUsername.bind(this);
-        this.handlePassword = this.handlePassword.bind(this);
-        this.handlePasswordConfirm = this.handlePasswordConfirm.bind(this);
     }
 
     componentDidMount() {
@@ -40,24 +27,6 @@ class PatientContent extends Component {
             });
     }
 
-    handleUsername = (newValue) => {
-        let patient = this.state.patient;
-        patient.login = newValue;
-        this.setState(patient);
-    };
-
-    handlePassword = (newValue) => {
-        let patient = this.state.patient;
-        patient.password = newValue;
-        this.setState(patient);
-    };
-
-    handlePasswordConfirm = (newValue) => {
-        let patient = this.state.patient;
-        patient.passwordConfirm = newValue;
-        this.setState(patient);
-    };
-
     render() {
         return (
             <div>
@@ -65,7 +34,7 @@ class PatientContent extends Component {
                     <TextField
                         hintText="Введите Ваш логин"
                         floatingLabelText="Логин"
-                        onChange={(event, newValue) => this.handleUsername(newValue)}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'username')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
@@ -73,7 +42,7 @@ class PatientContent extends Component {
                         type="password"
                         hintText="Введите Ваш пароль"
                         floatingLabelText="Пароль"
-                        onChange={(event, newValue) => this.handlePassword(newValue)}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'password')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
@@ -81,17 +50,20 @@ class PatientContent extends Component {
                         type="password"
                         hintText="Подтвердите Ваш пароль"
                         floatingLabelText="Подтвердите пароль"
-                        onChange={(event, newValue) => this.handlePasswordConfirm(newValue)}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'passwordConfirm')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Введите Ваше полное имя"
                         floatingLabelText="Полное имя"
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'full_name')}
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <SelectField floatingLabelText="Ваша больница" className={classes.centerFieldsSelect}>
+                    <SelectField floatingLabelText="Ваша больница" className={classes.centerFieldsSelect}
+                                 onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'hospital_id')}
+                    >
                         {this.state.hospitals.map(function (hospital) {
                             return (
                                 <MenuItem value={hospital.id} primaryText={hospital.hospital_name} key={hospital.id}/>
@@ -103,21 +75,21 @@ class PatientContent extends Component {
                     <TextField
                         hintText="Ваш email"
                         floatingLabelText="Email"
-                        onChange={(event, newValue) => this.setState({login: newValue})}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'email')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Ваш адрес"
                         floatingLabelText="Адрес"
-                        onChange={(event, newValue) => this.setState({login: newValue})}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'address')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Ваш телефон"
                         floatingLabelText="Телефон"
-                        onChange={(event, newValue) => this.setState({login: newValue})}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'phone')}
                     />
                 </Grid>
             </div>
