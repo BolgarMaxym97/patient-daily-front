@@ -49,6 +49,8 @@ class Login extends Component {
                 isHospital: this.state.isHospital,
             }))
                 .then(res => {
+                    Storage._set('isHospital', !!this.state.isHospital);
+                    Storage._set('isPatient', !this.state.isHospital);
                     Storage.user(res.data);
                     this.props.history.push('/');
                 });

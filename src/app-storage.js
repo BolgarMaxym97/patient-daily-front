@@ -28,6 +28,12 @@ const Storage = {
 
         return this._get('user');
     },
+    isHospital() {
+        return !!this._get('isHospital') && !this._get('isPatient');
+    },
+    isPatient(){
+        return !!this._get('isPatient') && !this._get('isHospital');
+    },
     auth()
     {
         return this._get('auth');

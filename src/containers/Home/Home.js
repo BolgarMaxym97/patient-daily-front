@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import Hospital from '../../components/Home/Hospital/Hospital';
+import Patient from '../../components/Home/Patient/Patient';
+import Storage from '../../app-storage';
+
 
 class Home extends Component {
 
@@ -8,7 +12,9 @@ class Home extends Component {
 
     render() {
         return (
-            <h1>Главная страница</h1>
+            <div>
+                {(Storage.isHospital()) ? <Hospital/> : <Patient/>}
+            </div>
         );
     }
 }
