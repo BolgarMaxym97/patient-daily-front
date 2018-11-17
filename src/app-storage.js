@@ -1,3 +1,5 @@
+import noty from './helpers/notifications';
+
 const Storage = {
     _set(name, obj) {
         this.drop(name);
@@ -18,7 +20,7 @@ const Storage = {
     user(data) {
         if (data !== null && typeof data !== 'undefined' && typeof data !== 'string') {
             if (typeof data !== 'object' || Object.keys(data).length === 0) {
-                throw new TypeError('User data type should be NOT EMPTY AND be an object!!!');
+                return noty.show('error', 'Неправильно заполнены данные')
             }
             this._set('user', data);
             return this._set('auth', true);

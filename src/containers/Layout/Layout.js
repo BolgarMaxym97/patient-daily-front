@@ -5,7 +5,9 @@ import {AppBar} from 'material-ui';
 import LeftMenu from '../../components/LeftMenu/LeftMenu';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faUserCircle, faSlidersH, faSignOutAlt, faHome} from '@fortawesome/free-solid-svg-icons';
+import {NotificationContainer} from 'react-notifications';
 import './Layout.css';
+import 'react-notifications/lib/notifications.css';
 
 library.add(faUserCircle, faSlidersH, faSignOutAlt, faHome);
 
@@ -45,6 +47,7 @@ class Layout extends Component {
                         />
                         <LeftMenu drawerIsOpen={this.state.drawerIsOpen} leftMenuToogle={this.leftMenuToogle}/>
                         {this.props.children}
+                        <NotificationContainer/>
                     </main>
                 </div>
             </MuiThemeProvider>

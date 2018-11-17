@@ -8,6 +8,7 @@ import HospitalContent from '../../../components/Register/Hospital/Hospital';
 import {Link} from "react-router-dom";
 import api from '../../../api';
 import Validator from '../../../helpers/validator';
+import noty from '../../../helpers/notifications';
 import qs from 'qs';
 
 class Register extends Component {
@@ -71,7 +72,11 @@ class Register extends Component {
             .then(res => {
                 if (res.status === 200 && res.statusText == 'OK') {
                     return this.props.history.push('/login');
+                } else {
+                    noty.show('error', 'Неправильно заполнены данные или такой пользователь уже создан')
                 }
+            }).catch(res => {
+                noty.show('error', 'Неправильно заполнены данные или такой пользователь уже создан')
             });
     };
 

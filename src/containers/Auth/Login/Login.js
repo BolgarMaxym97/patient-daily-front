@@ -31,7 +31,7 @@ class Login extends Component {
 
     errorMessage = (field) => {
         if (field.length > 0 && !Validator.validate(Validator.TYPES.ALPHANUMERIC, field)) {
-            return 'This field required and must be alphanumeric'
+            return 'Поля обязательно и должно содержать только буквы и цифры'
         }
         return '';
     };
