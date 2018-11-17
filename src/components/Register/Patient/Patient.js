@@ -9,8 +9,10 @@ class PatientContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hospitals: []
+            hospitals: [],
+            hospital_id: 1
         };
+        this.handleSetHospitalID = this.handleSetHospitalID.bind(this);
     }
 
     componentDidMount() {
@@ -27,6 +29,11 @@ class PatientContent extends Component {
             });
     }
 
+    handleSetHospitalID = (event, index, newValue) => {
+        this.setState({hospital_id : newValue});
+        return this.props.handleInputChange(newValue, 'patient', 'hospital_id');
+    };
+
     render() {
         return (
             <div>
@@ -34,7 +41,7 @@ class PatientContent extends Component {
                     <TextField
                         hintText="Введите Ваш логин"
                         floatingLabelText="Логин"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'username')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'login')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
@@ -62,7 +69,8 @@ class PatientContent extends Component {
                 </Grid>
                 <Grid item xs={12}>
                     <SelectField floatingLabelText="Ваша больница" className={classes.centerFieldsSelect}
-                                 onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'hospital_id')}
+                                 value={this.state.hospital_id}
+                                 onChange={this.handleSetHospitalID}
                     >
                         {this.state.hospitals.map(function (hospital) {
                             return (

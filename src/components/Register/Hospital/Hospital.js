@@ -16,7 +16,7 @@ class HospitalContent extends Component {
                     <TextField
                         hintText="Введите Ваш логин"
                         floatingLabelText="Логин"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'login')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'login')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
@@ -24,7 +24,7 @@ class HospitalContent extends Component {
                         type="password"
                         hintText="Введите Ваш пароль"
                         floatingLabelText="Пароль"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'password')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'password')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
@@ -32,42 +32,42 @@ class HospitalContent extends Component {
                         type="password"
                         hintText="Подтвердите Ваш пароль"
                         floatingLabelText="Подтвердите пароль"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'passwordConfirm')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'passwordConfirm')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Название больницы"
                         floatingLabelText="Название больницы"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'hospital_name')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'hospital_name')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Имя глав-врача"
                         floatingLabelText="Глав-врач"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'main_doctor')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'main_doctor')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Заполните email"
                         floatingLabelText="Email"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'email')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'email')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Заполните адрес больницы"
                         floatingLabelText="Адрес"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'address')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'address')}
                     />
                 </Grid>
                 <Grid item xs={12} className={classes.centerFields}>
                     <TextField
                         hintText="Заполните телефон больницы"
                         floatingLabelText="Телефон"
-                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'patient', 'phone')}
+                        onChange={(event, newValue) => this.props.handleInputChange(newValue, 'hospital', 'phone')}
                     />
                 </Grid>
             </div>

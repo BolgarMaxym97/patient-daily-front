@@ -46,7 +46,13 @@ class Register extends Component {
     }
 
     handleInputChange = (value, model, field) => {
-        console.info(value, model, field)
+        console.log(value, model, field);
+        this.setState(prevState => ({
+            [model]: {
+                ...prevState[model],
+                [field]: value
+            }
+        }));
     };
 
     handleSetHospital = (newValue) => {
