@@ -53,6 +53,7 @@
     "react-dom": "^16.5.2",
     "react-notifications": "^1.4.3",
     "react-router-dom": "^4.3.1",
+    "react-table": "^6.8.6",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",

@@ -8,6 +8,7 @@ import {faUserCircle, faSlidersH, faSignOutAlt, faHome} from '@fortawesome/free-
 import {NotificationContainer} from 'react-notifications';
 import './Layout.css';
 import 'react-notifications/lib/notifications.css';
+import 'react-table/react-table.css'
 
 library.add(faUserCircle, faSlidersH, faSignOutAlt, faHome);
 
