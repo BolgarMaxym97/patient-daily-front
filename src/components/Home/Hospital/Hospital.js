@@ -7,8 +7,8 @@ import Moment from "react-moment";
 import Button from '@material-ui/core/Button';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import api from '../../../api';
-import qs from 'qs';
 import noty from "../../../helpers/notifications";
+import {Link} from 'react-router-dom';
 
 class Hospital extends Component {
 
@@ -31,11 +31,6 @@ class Hospital extends Component {
             this.setState({hospitalInfo: []});
             this.setState({patients: []});
         });
-    };
-
-    view(index, id) {
-        console.log(index);
-        console.log(id);
     };
 
     remove(index, id) {
@@ -75,11 +70,11 @@ class Hospital extends Component {
                 sortable: false,
                 Cell: props => (
                     <div>
-                        <Button variant="contained" color="primary"
-                                onClick={(ev, value) => this.view(props.index, props.original.id)}>
-                            <FontAwesomeIcon icon="eye"/>
-
-                        </Button>
+                        <Link to={'/hospital/patient/' + props.original.id}>
+                            <Button variant="contained" color="primary">
+                                <FontAwesomeIcon icon="eye"/>
+                            </Button>
+                        </Link>
                         <Button variant="contained" color="secondary" style={{marginLeft: '10px'}}
                                 onClick={(ev, value) => this.remove(props.index, props.original.id)}>
                             <FontAwesomeIcon icon="trash"/>
