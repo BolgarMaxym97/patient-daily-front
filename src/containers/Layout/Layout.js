@@ -4,13 +4,13 @@ import {withRouter } from "react-router-dom";
 import {AppBar} from 'material-ui';
 import LeftMenu from '../../components/LeftMenu/LeftMenu';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faUserCircle, faSlidersH, faSignOutAlt, faHome} from '@fortawesome/free-solid-svg-icons';
+import {faUserCircle, faSlidersH, faSignOutAlt, faHome, faEye, faTrash} from '@fortawesome/free-solid-svg-icons';
 import {NotificationContainer} from 'react-notifications';
 import './Layout.css';
 import 'react-notifications/lib/notifications.css';
 import 'react-table/react-table.css'
 
-library.add(faUserCircle, faSlidersH, faSignOutAlt, faHome);
+library.add(faUserCircle, faSlidersH, faSignOutAlt, faHome, faEye, faTrash);
 
 
 class Layout extends Component {

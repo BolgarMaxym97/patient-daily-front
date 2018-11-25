@@ -5,10 +5,6 @@ import classes from './Hospital.module.css';
 
 class HospitalContent extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>

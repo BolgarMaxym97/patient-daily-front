@@ -8,6 +8,7 @@ import api from '../../../api';
 import Validator from '../../../helpers/validator';
 import Storage from '../../../app-storage';
 import qs from 'qs';
+import noty from "../../../helpers/notifications";
 
 class Login extends Component {
 
@@ -53,7 +54,9 @@ class Login extends Component {
                     Storage._set('isPatient', !this.state.isHospital);
                     Storage.user(res.data);
                     this.props.history.push('/');
-                });
+                }).catch(e =>
+                    noty.show('error', 'Ошибка сервера')
+                );
         }
         return this.setState({notValid: true});
 

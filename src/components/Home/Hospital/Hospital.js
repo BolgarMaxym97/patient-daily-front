@@ -3,6 +3,12 @@ import _ from 'lodash';
 import Storage from '../../../app-storage';
 import ReactTable from "react-table";
 import config from '../../../config';
+import Moment from "react-moment";
+import Button from '@material-ui/core/Button';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import api from '../../../api';
+import qs from 'qs';
+import noty from "../../../helpers/notifications";
 
 class Hospital extends Component {
 
@@ -15,12 +21,29 @@ class Hospital extends Component {
     }
 
     componentDidMount() {
-        this.setState({hospitalInfo: _.get(Storage.user(), [])});
-        this.setState({patients: _.get(Storage.user(), 'Patients', [])});
+        // piece of shit
+        api.get('hospitals').then(res => {
+            let hospital = Storage.user() || [];
+            let currentHospital = _.find(res.data, {id: _.get(hospital, 'id')});
+            this.setState({hospitalInfo: currentHospital});
+            this.setState({patients: _.get(currentHospital, 'Patients', [])});
+        }).catch(e => {
+            this.setState({hospitalInfo: []});
+            this.setState({patients: []});
+        });
     };
 
-    view(id) {
+    view(index, id) {
+        console.log(index);
         console.log(id);
+    };
+
+    remove(index, id) {
+        // bad code (no time)
+        let newPatients = this.state.patients;
+        newPatients.splice(index, 1);
+        this.setState({patients: newPatients});
+        noty.show('success', 'Пациент успешно удален');
     };
 
     render() {
@@ -43,18 +66,32 @@ class Hospital extends Component {
             },
             {
                 Header: 'Зарегестрировано',
-                accessor: 'created_at'
+                accessor: 'created_at',
+                Cell: props => (<Moment fromNow>{props.original.created_at}</Moment>)
             },
             {
                 id: 'view',
                 header: '',
                 sortable: false,
-                Cell: props => (<button onClick={(ev, value) => this.view(props.original.id)}>View</button>)
+                Cell: props => (
+                    <div>
+                        <Button variant="contained" color="primary"
+                                onClick={(ev, value) => this.view(props.index, props.original.id)}>
+                            <FontAwesomeIcon icon="eye"/>
+
+                        </Button>
+                        <Button variant="contained" color="secondary" style={{marginLeft: '10px'}}
+                                onClick={(ev, value) => this.remove(props.index, props.original.id)}>
+                            <FontAwesomeIcon icon="trash"/>
+
+                        </Button>
+                    </div>
+                )
             },
         ];
         return (
             <div>
-                <h1>Главная страница больницы</h1>
+                <h1>&nbsp;Зарегестрированые пациенты:</h1>
                 <ReactTable
                     data={this.state.patients}
                     columns={columns}

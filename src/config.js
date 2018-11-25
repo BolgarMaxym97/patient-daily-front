@@ -7,7 +7,7 @@ const config = {
             noDataText: 'Данные не найдены',
             pageText: 'Страница',
             ofText: 'с',
-            rowsText: 'страниц',
+            rowsText: 'на странице',
         }
     }
 };
