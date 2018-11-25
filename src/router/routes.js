@@ -38,7 +38,7 @@ const routes = [
         component: Logout,
         title: 'Выход',
         exact: false,
-        authed: true,
+        authed: true
     },
 ];
 
