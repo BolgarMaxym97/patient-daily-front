@@ -13,7 +13,6 @@ class LeftMenu extends Component {
             menuItems: {
                 authed: [
                     {link: '/', name: 'Профиль', icon: 'user-circle'},
-                    {link: '/settings', name: 'Настройки', icon: 'sliders-h'},
                     {link: '/logout', name: 'Выйти', icon: 'sign-out-alt'},
                 ],
                 notAuthed: [
