@@ -3,6 +3,7 @@ import Login from "../containers/Auth/Login/Login";
 import Register from "../containers/Auth/Register/Register";
 import Logout from "../components/Logout";
 import Patient from '../components/Home/Patient/Patient'
+import PatientInfo from '../components/Home/PatientInfo/PatientInfo'
 
 const routes = [
     {
@@ -30,7 +31,14 @@ const routes = [
         path: '/hospital/patient/:id',
         component: Patient,
         title: 'Страница пациента',
-        exact: false,
+        exact: true,
+        authed: true,
+    },
+    {
+        path: '/hospital/patient/create-info/:id',
+        component: PatientInfo,
+        title: 'Создание записи',
+        exact: true,
         authed: true,
     },
     {

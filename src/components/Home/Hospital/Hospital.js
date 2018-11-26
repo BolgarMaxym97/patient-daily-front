@@ -62,7 +62,7 @@ class Hospital extends Component {
             {
                 Header: 'Зарегестрировано',
                 accessor: 'created_at',
-                Cell: props => (<Moment fromNow>{props.original.created_at}</Moment>)
+                Cell: props => (<Moment locale="ru" fromNow>{props.original.created_at}</Moment>)
             },
             {
                 id: 'view',

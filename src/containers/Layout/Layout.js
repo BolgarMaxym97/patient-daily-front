@@ -8,7 +8,8 @@ import {faUserCircle, faSlidersH, faSignOutAlt, faHome, faEye, faTrash} from '@f
 import {NotificationContainer} from 'react-notifications';
 import './Layout.css';
 import 'react-notifications/lib/notifications.css';
-import 'react-table/react-table.css'
+import 'react-table/react-table.css';
+import 'moment/locale/ru';
 
 library.add(faUserCircle, faSlidersH, faSignOutAlt, faHome, faEye, faTrash);
 
